@@ -5,7 +5,7 @@ import UserInfo from './components/UserInfo';
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <UserInfo />
+      <UserInfo/>
       <StatusBar style="auto" />
     </SafeAreaView>
   );
