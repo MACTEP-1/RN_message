@@ -4,10 +4,10 @@
     "slug": "chat",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/csplash2.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/csplash1.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
