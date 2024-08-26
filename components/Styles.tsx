@@ -51,4 +51,38 @@ export default StyleSheet.create({
         flexGrow: 1,
         fontSize: 18,
     },
+
+    flatListItem: {
+        borderRadius: 10,
+        borderWidth: 1,
+        padding: 5,
+        paddingBottom: 7,
+        marginBottom: 7,
+        marginLeft: 16,
+        marginRight: 16,
+        borderColor: "green",
+    },
+
+    messageHeader: {
+        flexDirection: "row",
+        flexWrap: "wrap",
+      },
+
+    avatarSmall: {
+        width: 30,
+        height: 30,
+        borderRadius: 5,
+        marginRight: 5,
+        marginBottom: 2,
+      },
+
+    smallItalicText: {
+        fontSize: 16,
+        fontStyle: "italic",
+        alignSelf: "center",
+      },
+
+    chatText: {
+        fontSize: 18,
+      },
 })

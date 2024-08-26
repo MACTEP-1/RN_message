@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { View, TextInput, Button, Image, Text } from "react-native";
 import Styles from "./Styles";
 import ImageChooser from "./ImagePick";
-const UserInfo = () => {
+
+type UserInfoProps = {
+    onClose: (name: string, image: string) => void;
+};
+
+const UserInfo = ({onClose}: UserInfoProps) => {
     const[name, setName] = useState("");
     const[image, setImage] = useState("");
     return (
@@ -22,7 +27,9 @@ const UserInfo = () => {
 
             <ImageChooser onChangeImage={(image) => setImage(image)} />
 
-            <Button title="Start" onPress={() => {}} />
+            <Button title="Start" 
+                onPress={() => onClose(name, image)} 
+            />
         </View>
     );
 }
