@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, TextInput, Button, FlatList, ListRenderItem } from "react-native";
 import { Message, RenderMessage } from "./Message";
 import Styles from "./Styles";
+import Socket from "./Socket";
 
 type ChatProps = {
     username: string;
@@ -11,6 +12,25 @@ type ChatProps = {
 const Chat = ({ username, image }: ChatProps) => {
     let [messageInput, setMessageInput] = useState("");
     let [messageList, setMessageList] = useState<Message[]>([]);
+
+    useEffect(() => {
+        (async () => {
+            try {
+                if (Socket.state == "Disconnected") {
+                    await Socket.start();
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        })();
+        Socket.on("ReceiveMessage", (message) => {
+            setMessageList((messageList) => {
+                if (messageList.find((i) => i.id == message.id)) 
+                    return messageList;
+                return [...messageList, message];
+            });
+        });
+    }, []);
 
     const renderItem: ListRenderItem<Message> = ({ item }) => (
         <RenderMessage message={item} username={username}></RenderMessage>
